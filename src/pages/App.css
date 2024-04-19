@@ -1,4 +1,4 @@
-.main{
+.main {
   background-color: #f6f8fa;
   width: 100%;
   height: 100vh;
@@ -8,7 +8,7 @@
   gap: 15px;
 }
 
-.side{
+.side {
   background-color: #3025a7;
   width: 20%;
   height: 100%;
@@ -17,7 +17,7 @@
   flex-direction: column;
 }
 
-.title__side{
+.title__side {
   font-weight: bold;
   font-size: 28px;
   color: white;
@@ -25,33 +25,59 @@
   margin: 40px 0;
 }
 
-.principal{
+.side > ul {
+  width: 70%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+  margin: 0 0 0 80px;
+  color: white;
+  font-weight: 300;
+  display: block;
+
+  & > li > * {
+    list-style: none;
+    cursor: pointer;
+    padding: 10px;
+    display: block;
+  }
+}
+
+li a.active {
+  background-color: #fdfdfd;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  color: #3025a7;
+}
+
+.principal {
   width: 80%;
   height: 100%;
   padding: 15px;
   border-radius: 40px;
-} 
+}
 
-.top{
+.top {
   width: 100%;
   height: 20%;
   display: flex;
   gap: 15px;
 }
 
-.favorite{
+.favorite {
   width: 25%;
   height: 100%;
   display: flex;
   border-radius: 20px;
-
 }
 
-.favorite-selected{
+.favorite-selected {
   background-color: #3025a7;
 }
 
-.center{
+.center {
   width: 100%;
   height: 80%;
   padding: 20px 0;
@@ -59,7 +85,7 @@
   gap: 20px;
 }
 
-.feeds{
+.feeds {
   width: 73%;
   height: 100%;
   display: flex;
@@ -67,20 +93,19 @@
   gap: 20px;
 }
 
-.list{
+.list {
   width: 27%;
   height: 100%;
   border-radius: 20px;
 }
 
-.feeds > div{
+.feeds > div {
   height: 50%;
   width: 100%;
   border-radius: 20px;
-
 }
 
-div{
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+div {
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
-
