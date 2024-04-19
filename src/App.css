@@ -1,0 +1,86 @@
+.main{
+  background-color: #f6f8fa;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  padding: 15px;
+  display: flex;
+  gap: 15px;
+}
+
+.side{
+  background-color: #3025a7;
+  width: 20%;
+  height: 100%;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title__side{
+  font-weight: bold;
+  font-size: 28px;
+  color: white;
+  text-align: center;
+  margin: 40px 0;
+}
+
+.principal{
+  width: 80%;
+  height: 100%;
+  padding: 15px;
+  border-radius: 40px;
+} 
+
+.top{
+  width: 100%;
+  height: 20%;
+  display: flex;
+  gap: 15px;
+}
+
+.favorite{
+  width: 25%;
+  height: 100%;
+  display: flex;
+  border-radius: 20px;
+
+}
+
+.favorite-selected{
+  background-color: #3025a7;
+}
+
+.center{
+  width: 100%;
+  height: 80%;
+  padding: 20px 0;
+  display: flex;
+  gap: 20px;
+}
+
+.feeds{
+  width: 73%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.list{
+  width: 27%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+.feeds > div{
+  height: 50%;
+  width: 100%;
+  border-radius: 20px;
+
+}
+
+div{
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
