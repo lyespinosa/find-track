@@ -14,6 +14,8 @@ import Home from './pages/Home/Home';
 import Goals from './pages/Goals/Goals';
 import SavingsAccounts from './pages/SavingsAccounts/SavingsAccounts';
 import SharedCosts from './pages/SharedCosts/SharedCosts';
+import SignUp from './pages/SignUp/SignUp';
+import Login from './pages/Login/Login';
 
 const router = createBrowserRouter([
   {
@@ -39,6 +41,14 @@ const router = createBrowserRouter([
       }
     ],
   },
+  {
+    path: "sign-up",
+    element: <SignUp/>,
+  },
+  {
+    path: "Login",
+    element: <Login/>,
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
