@@ -1,13 +1,22 @@
 import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure } from "@nextui-org/react";
+import { useEffect } from "react";
+import { getSharedSavingsByUserRequest } from "../../services/public.service";
+import ProgressBar from "../../components/forms/ProgressBar";
+import SharedSavingsOnTop from "./components/SharedSavingsOnTop";
 
 export default function Home() {
 
-    const randomColor = () => {
-        const r = Math.floor(Math.random() * 256);
-        const g = Math.floor(Math.random() * 256);
-        const b = Math.floor(Math.random() * 256);
-        return `rgb(${r}, ${g}, ${b})`;
-    };
+    useEffect(() => {
+        const fetchData = async () => {
+            let responseData = await getSharedSavingsByUserRequest();
+            console.log(JSON.stringify(responseData));
+        };
+
+        fetchData();
+    }, [])
+
+
+
 
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
     const { isOpen: isOpen2, onOpen: onOpen2, onOpenChange: onOpenChange2 } = useDisclosure();
@@ -17,91 +26,47 @@ export default function Home() {
     return (
         <>
             <section className='top'>
-                <div className="favorite">
-                    <section>
-                        <p>Gasto compartido con: </p>
-                        <i style={{ backgroundColor: randomColor(), }}>J</i>
-                        <i style={{ backgroundColor: randomColor(), }}>L</i>
-                        <i style={{ backgroundColor: randomColor(), }}>D</i>
-                    </section>
-                    <section className="favorite_total">
-                        <p>Total gastado <span>$2300</span></p>
-                    </section>
-                    <section className="favorite_fecha">
-                        <section>
-                            <Button onPress={onOpen} className="favorite_details">Ver detalles</Button>
-                        </section>
-                        <section>
-                            <p>Fecha de corte: </p>
-                            <p className="fecha_number">20 de junio</p>
-                        </section>
-                    </section>
-                </div>
-                <div className="favorite">
-                    <section>
-                        <p>Gasto compartido con: </p>
-                        <i style={{ backgroundColor: randomColor(), }}>L</i>
-                        <i style={{ backgroundColor: randomColor(), }}>R</i>
-                        <i style={{ backgroundColor: randomColor(), }}>C</i>
-                    </section>
-                    <section className="favorite_total">
-                        <p>Total gastado <span>$5400</span></p>
-                    </section>
-                    <section className="favorite_fecha">
-                        <section>
-                            <Button onPress={onOpen2} className="favorite_details">Ver detalles</Button>
-                        </section>
-                        <section>
-                            <p>Fecha de corte: </p>
-                            <p className="fecha_number">13 agosto</p>
-                        </section>
-                    </section>
-                </div>
-                <div className="favorite">
-                    <section>
-                        <p>Gasto compartido con: </p>
-                        <i style={{ backgroundColor: randomColor(), }}>J</i>
-                        <i style={{ backgroundColor: randomColor(), }}>L</i>
-                        <i style={{ backgroundColor: randomColor(), }}>D</i>
-                    </section>
-                    <section className="favorite_total">
-                        <p>Total gastado <span>$2000</span></p>
-                    </section>
-                    <section className="favorite_fecha">
-                        <section>
-                            <Button onPress={onOpen3} className="favorite_details">Ver detalles</Button>
-                        </section>
-                        <section>
-                            <p>Fecha de corte: </p>
-                            <p className="fecha_number">3 de septiembre</p>
-                        </section>
-                    </section>
-                </div>
-                <div id="selected" className="favorite favorite-selected">
-                    <section>
-                        <p>Gasto compartido con: </p>
-                        <i style={{ backgroundColor: randomColor(), }}>J</i>
-                        <i style={{ backgroundColor: randomColor(), }}>L</i>
-                        <i style={{ backgroundColor: randomColor(), }}>D</i>
-                    </section>
-                    <section className="favorite_total">
-                        <p>Total gastado <span>$2000</span></p>
-                    </section>
-                    <section className="favorite_fecha">
+                <SharedSavingsOnTop title="Viaje de fin de semana" goal={2000} current={1500} />
+                <SharedSavingsOnTop title="Para los gastos de la casa" goal={7200} current={3000} />
+                <SharedSavingsOnTop title="Cena familiar" goal={4500} current={800} />
+                <SharedSavingsOnTop title="Regalos de cumpleaños" goal={3000} current={2000} />
 
-                        <section>
-                            <p className="">Finalizada</p>
-                        </section>
-                    </section>
-                </div>
             </section>
 
             <section className='center'>
                 <section className='feeds'>
-                    <div></div>
-                    <div></div>
+                    <div className="py-2 px-2" >
+                        <p className="text-center font-bold text-lg text-zinc-600">Apartados individuales</p>
+                        <section className="flex justify-around">
+                            <section className="w-[32%] px-4 flex flex-col justify-evenly items-center h-52 border-r-2 border-zinc-300">
+                                <p className=" font-bold text-[#3025a7] text-xl"> Gastos de la semana</p>
+                                <p className="text-xl font-medium">Meta <span className="font-extrabold">$1200.00</span></p>
+                                <ProgressBar height={40} goal={1200} current={350} textInsideBar={'$350.00'} />
+                                <Button className="w-28" color="primary" variant="flat" onPress={onOpen}>Apartar</Button>
+                            </section>
+                            <section className="w-[32%] px-4 flex flex-col justify-evenly items-center h-52 border-r-2 border-zinc-300">
+                                <p className=" font-bold text-[#3025a7] text-xl">Comprar laptop</p>
+                                <p className="text-xl font-medium">Meta <span className="font-extrabold">$18000.00</span></p>
+                                <ProgressBar height={40} goal={18000} current={12000} textInsideBar={'$12000.00'} />
+                                <Button className="w-28" color="primary" variant="flat" onPress={onOpen}>Apartar</Button>
+                            </section>
+                            <section className="w-[32%] px-4 flex flex-col justify-evenly items-center h-52 ">
+                                <p className=" font-bold text-[#3025a7] text-xl"> Gastos de la semana</p>
+                                <p className="text-xl font-medium">Meta <span className="font-extrabold">$1200.00</span></p>
+                                <ProgressBar height={40} goal={1200} current={350} textInsideBar={'$350.00'} />
+                                <Button className="w-28" color="primary" variant="flat" onPress={onOpen}>Apartar</Button>
+                            </section>
+
+                        </section>
+                    </div>
+                    <div>
+                        <p className="text-center font-bold text-lg text-zinc-600">Apartados agregados reciente</p>
+
+                    </div>
                 </section>
-                <div className='list'></div>
+                <div className='list'>
+                    <p className="text-center font-bold text-lg text-zinc-600">Meta más cercana</p>
+                </div>
             </section>
 
             <Modal isOpen={isOpen} onOpenChange={onOpenChange}>

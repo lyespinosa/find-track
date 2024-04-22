@@ -3,7 +3,7 @@ import './App.css'
 import { Button } from '@nextui-org/react'
 
 export default function Layout() {
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
 
     const handleLogout = () => {
         localStorage.removeItem('user');
@@ -14,7 +14,9 @@ export default function Layout() {
         <div className='main'>
 
             <div className='side'>
-                <p className="title__side">FindTrack</p>
+                <section>
+                    <p className="title__side">FindTrack</p>
+                </section>
 
                 <ul>
                     <li>
