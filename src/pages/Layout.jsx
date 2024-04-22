@@ -1,7 +1,14 @@
-import { NavLink, Outlet } from 'react-router-dom'
+import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 import './App.css'
+import { Button } from '@nextui-org/react'
 
 export default function Layout() {
+    const navigate = useNavigate(); 
+
+    const handleLogout = () => {
+        localStorage.removeItem('user');
+        navigate('/login');
+    }
 
     return (
         <div className='main'>
@@ -23,6 +30,10 @@ export default function Layout() {
                         <NavLink to="/savings-accounts">Cajas de ahorro</NavLink>
                     </li>
                 </ul>
+
+                <section className='logout_container'>
+                    <Button onPress={handleLogout} className='bg-red-600 text-white w-40'>Salir</Button>
+                </section>
             </div>
 
             <section className='principal'>

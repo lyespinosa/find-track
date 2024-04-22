@@ -175,9 +175,6 @@ p.finalizado{
   gap: 4px;
 }
 
-.fecha_gasto{
-
-}
 
 
 .center {
@@ -211,4 +208,14 @@ p.finalizado{
 div {
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+
+.logout_container{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex: 1;
+  padding: 20px 0;
+  gap: 10px;
 }

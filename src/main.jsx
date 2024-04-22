@@ -16,20 +16,24 @@ import SavingsAccounts from './pages/SavingsAccounts/SavingsAccounts';
 import SharedCosts from './pages/SharedCosts/SharedCosts';
 import SignUp from './pages/SignUp/SignUp';
 import Login from './pages/Login/Login';
+import AuthUser from './hooks/useAuth';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
-    errorElement: <ErrorPage/>,
+    element:
+      <AuthUser>
+        <Layout />
+      </AuthUser>,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "",
-        element: <Home/>,
+        element: <Home />,
       },
       {
         path: "goals",
-        element: <Goals/>,
+        element: <Goals />,
       },
       {
         path: "savings-accounts",
@@ -43,13 +47,15 @@ const router = createBrowserRouter([
   },
   {
     path: "sign-up",
-    element: <SignUp/>,
+    element: <SignUp />,
   },
   {
     path: "Login",
-    element: <Login/>,
+    element: <Login />,
   }
 ]);
+
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
